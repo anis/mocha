@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id="mocha"></div>
+
+        <script src="./assets/mocha.js"></script>
+        <script src="./assets/chai.js"></script>
+        <script src="../lib/Success.js"></script>
+
+        <script>
+        mocha.ui('bdd');
+        mocha.reporter('html');
+        </script>
+
+        <script>
+        // Tests
+        describe("Success", function () {
+            it("should provide a method 'success' to all objects", function () {
+                var obj = {};
+                chai.expect(obj.success).to.be.a("function");
+            });
+
+            it("\t| which returns the given string", function () {
+                var obj = {};
+                chai.expect(obj.success("HELLO")).to.equal("HELLO");
+            });
+        });
+
+        // Run the tests
+        if (window.mochaPhantomJS) {
+            mochaPhantomJS.run();
+        } else {
+            mocha.run();
+        }
+        </script>
+    </body>
+</html>

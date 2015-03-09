@@ -1,0 +1,2 @@
+#!/bin/bash
+eval "../node_modules/.bin/mocha-phantomjs \"runner$1.html\""
